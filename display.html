@@ -1,24 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Display</title>
+    <title>Display Messages</title>
+    <style>
+        #messages-container p { margin: 5px 0; padding: 8px; background-color: #f0f0f0; border-radius: 5px; }
+    </style>
 </head>
 <body>
     <h1>Live Messages</h1>
     <div id="messages-container"></div>
 
-    <!-- JavaScript to receive data from Firebase -->
-    <script>
-        // 1. You would first need to initialize Firebase with your personal API keys.
+    <!-- Supabase SDK Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        // 2. Get the container element.
+    <script>
+        // 1. PASTE THE SAME SUPABASE URL AND ANON KEY HERE
+        const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+        // 2. Initialize Supabase
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         const messagesContainer = document.getElementById('messages-container');
 
-        // 3. Set up a listener that waits for new messages to be added to Firebase.
-        
-        // 4. When a new message is received from the database, create a new
-        //    paragraph element, put the message text inside it, and append it to the page.
-        //    The Firebase 'onChildAdded' event is typically used for this.
+        // Function to display a message
+        const displayMessage = (message) => {
+            const messageElement = document.createElement('p');
+            messageElement.textContent = message.content;
+            messagesContainer.prepend(messageElement); // Add new messages to the top
+        };
+
+        // 3. Listen for new messages in the 'messages' table
+        supabase.channel('public:messages')
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, (payload) => {
+                displayMessage(payload.new);
+            })
+            .subscribe();
+
+        // 4. Load existing messages on page load
+        async function loadInitialMessages() {
+            const { data } = await supabase.from('messages').select('*').order('created_at', { ascending: false });
+            if (data) {
+                data.forEach(message => displayMessage(message));
+            }
+        }
+        loadInitialMessages();
     </script>
 </body>
 </html>
