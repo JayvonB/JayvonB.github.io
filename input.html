@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input</title>
+</head>
+<body>
+    <h1>Enter a message</h1>
+    <input type="text" id="message-input" placeholder="Type here and press Enter">
+
+    <!-- JavaScript to send data to Firebase -->
+    <script>
+        // 1. You would first need to initialize Firebase with your personal API keys.
+        
+        // 2. Get the input element.
+        const messageInput = document.getElementById('message-input');
+
+        // 3. Add an event listener to the input.
+        messageInput.addEventListener('keydown', function(event) {
+            // 4. When the 'Enter' key is pressed, send the input's value 
+            //    to your Firebase Realtime Database.
+            if (event.key === 'Enter') {
+                const message = messageInput.value;
+                // Code to push 'message' to Firebase would go here.
+                messageInput.value = ''; // Clear the input box
+            }
+        });
+    </script>
+</body>
+</html>
