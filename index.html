@@ -1,117 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RGB Background Changer</title>
-    <style>
-        /* Ensures inputs appear neatly on the same line */
-        .color-control {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .color-control label {
-            width: 50px; /* Gives labels a consistent width */
-        }
-        .color-control input[type="range"] {
-            flex-grow: 1; /* Makes sliders take up available space */
-            margin-right: 15px;
-        }
-        .color-control input[type="number"] {
-            width: 60px; /* Sets a fixed width for the number boxes */
-        }
-    </style>
+<title>Background Image Example</title>
+<style>
+body {
+  background-color: #FF55FF;
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: cover; /* Scales the image to cover the entire element */
+  background-position: center center; /* Centers the image */
+}
+</style>
 </head>
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/68d545b49b37c5194dffa1fe/1j60hgiaf';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-    
 <body>
 
-    <h1>Change the Background Color</h1>
-    <div class="controls">
-        <!-- HTML sliders and number inputs for RGB -->
-        <div class="color-control">
-            <label for="red">Red</label>
-            <input type="range" id="red" min="0" max="255" value="200">
-            <input type="number" id="red-text" min="0" max="255" value="200">
-        </div>
-        <div class="color-control">
-            <label for="green">Green</label>
-            <input type="range" id="green" min="0" max="255" value="220">
-            <input type="number" id="green-text" min="0" max="255" value="220">
-        </div>
-        <div class="color-control">
-            <label for="blue">Blue</label>
-            <input type="range" id="blue" min="0" max="255" value="255">
-            <input type="number" id="blue-text" min="0" max="255" value="255">
-        </div>
-        <p>Current Color: <span id="color-value"></span></p>
-    </div>
-
-    <script>
-        // Select all input elements
-        const redSlider = document.getElementById('red');
-        const greenSlider = document.getElementById('green');
-        const blueSlider = document.getElementById('blue');
-
-        const redText = document.getElementById('red-text');
-        const greenText = document.getElementById('green-text');
-        const blueText = document.getElementById('blue-text');
-
-        const colorValueSpan = document.getElementById('color-value');
-
-        // Function to update color and sync text inputs from sliders
-        function updateFromSlider() {
-            const r = redSlider.value;
-            const g = greenSlider.value;
-            const b = blueSlider.value;
-
-            // Update the text inputs to match the sliders
-            redText.value = r;
-            greenText.value = g;
-            blueText.value = b;
-
-            const rgbColor = `rgb(${r}, ${g}, ${b})`;
-            document.body.style.backgroundColor = rgbColor;
-            colorValueSpan.textContent = rgbColor;
-        }
-
-        // Function to update color and sync sliders from text inputs
-        function updateFromText() {
-            // Update the sliders to match the text inputs
-            redSlider.value = redText.value;
-            greenSlider.value = greenText.value;
-            blueSlider.value = blueText.value;
-            
-            // Now run the main update function to change color
-            updateFromSlider();
-        }
-
-        // Add event listeners to sliders
-        redSlider.addEventListener('input', updateFromSlider);
-        greenSlider.addEventListener('input', updateFromSlider);
-        blueSlider.addEventListener('input', updateFromSlider);
-
-        // Add event listeners to text inputs
-        redText.addEventListener('input', updateFromText);
-        greenText.addEventListener('input', updateFromText);
-        blueText.addEventListener('input', updateFromText);
-
-        // Run the function once on page load to set the initial color
-        updateFromSlider();
-    </script>
+  <h1>Welcome to my page!</h1>
+  <p>This page has a background image.</p>
 
 </body>
 </html>
