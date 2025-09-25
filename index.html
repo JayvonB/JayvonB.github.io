@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Background Image Example</title>
+<title>Chat Page</title>
 <style>
 body {
-  background-color: #FF55FF;
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-size: cover; /* Scales the image to cover the entire element */
-  background-position: center center; /* Centers the image */
+  background-color: #FFFFFF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-family: sans-serif; /* Added for readability */
+  color: white; /* Added for readability against dark background */
+}
+/* Style the container for the chat */
+#rt-db5a07d55f6cdb1eb83dbfe54c901403 {
+  width: 80%;
+  height: 60vh; /* 60% of the viewport height */
+  margin: 20px auto; /* Center the chatbox */
 }
 </style>
 </head>
@@ -15,9 +23,12 @@ body {
 
   <h1>ts like ephs chat or sum</h1>
   <p>completely unmoderated, lmk if yall want priv convos i can make em for you</p>
-  <p>chat should be somewhere on the screen idk where</p>
 
-<div id="rt-db5a07d55f6cdb1eb83dbfe54c901403"></div> <script src="https://rumbletalk.com/client/?_b6fPp!H"></script>
+  <!-- This div is the placeholder where the chat will load -->
+  <div id="rt-db5a07d55f6cdb1eb83dbfe54c901403"></div>
+
+  <!-- The script that loads the RumbleTalk chat into the div above -->
+  <script src="https://rumbletalk.com/client/?_b6fPp!H"></script>
 
 </body>
 </html>
