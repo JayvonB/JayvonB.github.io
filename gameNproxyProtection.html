@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+</head>
+<body>
+
+    <h2>Enter Password to Continue</h2>
+
+    <form onsubmit="return false;"> <!-- Prevents form from submitting the traditional way -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button onclick="checkPassword()">Submit</button>
+    </form>
+
+    <script>
+        function checkPassword() {
+            // --- CUSTOMIZE YOUR SETTINGS ---
+            const correctPassword = "GoontopiaWarriors123!@";
+            const correctUrl = "https://rumbletalk.com/client/chat.php?j6Bf6NmY"; // Page for correct password
+            const incorrectUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Page for incorrect password
+            // --------------------------------
+
+            const password = document.getElementById("password").value;
+
+            if (password === correctPassword) {
+                // Redirect to the correct page [1.1.1, 1.2.10]
+                window.location.href = correctUrl;
+            } else {
+                // Redirect to the incorrect page [1.2.3, 1.4.1]
+                window.location.href = incorrectUrl;
+            }
+        }
+    </script>
+
+    <p style="color:red; margin-top: 15px;">
+        <strong>Note:</strong> This is not a secure form of password protection. The password is visible in the page's source code and should not be used for sensitive information [1.1.12, 1.3.1].
+    </p>
+
+</body>
+</html>
