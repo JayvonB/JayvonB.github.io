@@ -8,23 +8,13 @@
 
     <h1>My Learn To Fly</h1>
     
-    <div id="ruffle-container" style="width:800px; height:600px;"></div>
+    <!-- This is the HTML tag where Ruffle will load your SWF file. -->
+    <!-- The `src` attribute is the path to your SWF file. -->
+    <embed src="games/learn-to-fly.swf" width="1280" height="720"></embed>
 
+    <!-- Include the Ruffle CDN script right before the closing </body> tag. -->
+    <!-- This script automatically detects and plays Flash content. -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-
-    <script>
-        window.addEventListener("load", (event) => {
-            const ruffle = window.RufflePlayer.newest();
-            const player = ruffle.createPlayer();
-            const container = document.getElementById("ruffle-container");
-            container.appendChild(player);
-
-            player.load({
-                // Replace with your actual Backblaze B2 direct URL
-                url: "https://f005.backblazeb2.com/file/swf-games/Learn-To-Fly-3.swf" 
-            });
-        });
-    </script>
 
 </body>
 </html>
