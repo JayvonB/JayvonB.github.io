@@ -8,13 +8,25 @@
 
     <h1>My Learn To Fly</h1>
     
-    <!-- This is the HTML tag where Ruffle will load your SWF file. -->
-    <!-- The `src` attribute is the path to your SWF file. -->
-    <embed src="https://github.com/Ducci9129/Swf-Collection/blob/63e0e231c5b96ff3deed3ab052e4c16cd5820a69/Collection/Learn-To-Fly-3.swf" width="800" height="600"></embed>
+    <!-- This div is where the Ruffle player will be created. -->
+    <div id="ruffle-container" style="width:800px; height:600px;"></div>
 
-    <!-- Include the Ruffle CDN script right before the closing </body> tag. -->
-    <!-- This script automatically detects and plays Flash content. -->
+    <!-- Include the Ruffle CDN script. -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+    <!-- Use JavaScript to load the SWF into the Ruffle player. -->
+    <script>
+        window.addEventListener("load", (event) => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            const container = document.getElementById("ruffle-container");
+            container.appendChild(player);
+
+            player.load({
+                url: "https://raw.githubusercontent.com/Ducci9129/Swf-Collection/63e0e231c5b96ff3deed3ab052e4c16cd5820a69/Collection/Learn-To-Fly-3.swf"
+            });
+        });
+    </script>
 
 </body>
 </html>
