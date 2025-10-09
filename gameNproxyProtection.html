@@ -1,39 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Page</title>
+  <title>EPHS Chat - Redirect</title>
+  <!-- Replace the URL in the line below with your actual full-screen RumbleTalk chat link -->
+  <meta http-equiv="refresh" content="0; url=https://docs.google.com/document/d/1iy9pfue0E2HelB3KW1GfhxfRpt-diSsE_HON4eR9-tk">
 </head>
 <body>
-
-    <h2>Enter Password to Continue</h2>
-
-    <form onsubmit="return false;"> <!-- Prevents form from submitting the traditional way -->
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <button onclick="checkPassword()">Submit</button>
-    </form>
-
-    <script>
-        function checkPassword() {
-            // --- CUSTOMIZE YOUR SETTINGS ---
-            const correctPassword = "DiddybludUltra123";
-            const correctUrl = "https://rumbletalk.com/client/chat.php?j6Bf6NmY"; // Page for correct password
-            const incorrectUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Page for incorrect password
-            // --------------------------------
-
-            const password = document.getElementById("password").value;
-
-            if (password === correctPassword) {
-                // Redirect to the correct page [1.1.1, 1.2.10]
-                window.location.href = correctUrl;
-            } else {
-                // Redirect to the incorrect page [1.2.3, 1.4.1]
-                window.location.href = incorrectUrl;
-            }
-        }
-    </script>
-
+  <p>Redirecting to document...</p>
+  <a href="https://docs.google.com/document/d/1iy9pfue0E2HelB3KW1GfhxfRpt-diSsE_HON4eR9-tk">If the page is not redirecting you, click here to go to the document.</a>
 </body>
 </html>
